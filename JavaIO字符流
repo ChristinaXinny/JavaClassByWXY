@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package j0601IO;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * @author ChristinaXinny
+ * @Date: 2020年5月31日 下午10:12:33
+ */
+public class J1 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			PrintWriter output = new PrintWriter(//字符流
+					new BufferedWriter(//字符流缓冲
+							new FileWriter("A001.txt",true)));
+			//写入 第二个参数true表示以追加形式写文件,如果为true 则将字节写入文件末尾处，不是写入文件开始处 
+			for(int i=0; i<100; i++) {
+				output.print(((int)(Math.random()*100+1)));
+				output.write(" ");
+			}
+			System.out.println("yes");
+			output.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+				
+	}
+
+}
